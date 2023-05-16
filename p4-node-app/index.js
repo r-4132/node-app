@@ -17,7 +17,7 @@ server.use( baseURL, RecipeRoutes );
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-    console.log('Connection is open')
+    console.log('Compass: Connection is open')
 })
 
 
