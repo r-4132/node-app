@@ -9,10 +9,14 @@ const baseURL = "/api/v1/recipes";
 
 mongoose.connect('mongodb://127.0.0.1:27017/recipedb');
 const RecipeRoutes = require('./routes/RecipeRoutes')
+const RateRoutes = require('./routes/RateRoutes')
+const CommentRoutes = require('./routes/CommentRoutes')
 
 server.use( bodyParser.json() ); 
 server.use( cors() ); 
 server.use( baseURL, RecipeRoutes );
+server.use( baseURL, RateRoutes );
+server.use( baseURL, CommentRoutes );
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
