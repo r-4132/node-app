@@ -2,9 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Comment = require('../models/CommentModel');
 
+require('dotenv').config();
+
 router.post('/comment', (request, response) =>
 {
-    const { name, email, content, rating } = request.body;
+    const { name, content, rating } = request.body;
+    const email = process.env.EMAIL;
 
     if(!name || !email)
     {
