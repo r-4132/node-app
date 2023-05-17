@@ -4,7 +4,8 @@ const CommentSchema = mongoose.Schema({
     name: String,
     email:    String,
     content: String,
-    rating: Number
+    rating: Number,
+    deleted: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model( 'Comment', CommentSchema );

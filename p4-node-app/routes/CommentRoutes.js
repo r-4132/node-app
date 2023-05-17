@@ -33,12 +33,12 @@ router.post('/comment', (request, response) =>
         })
 
 })
-
 router.delete('/comment/:id', (request, response) =>
 {
     const commentId = request.params.id;
     const rating = request.body;
-    Comment.findByIdAndDelete(commentId, rating)
+    
+    Comment.findByIdAndUpdate(commentId,  { deleted: true }, { new: true }, rating)
     .then(deleteComment =>
         {
             if(!deleteComment)
@@ -46,12 +46,14 @@ router.delete('/comment/:id', (request, response) =>
                 return response.status(400).send({error: "Commentnot found"});
             }
             response.status(200).send({ message: 'Comment deleted successfully' });
+ 
         })
     .catch(error =>
         {
             response.status(400).send({error: 'failed to delete comment'});
         });
 });
+
 
 router.put('/comment/:id', (request, response) =>
 {
