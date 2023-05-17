@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Comment = require('../models/CommentModel');
 
-require('dotenv').config();
+
 
 router.post('/comment', (request, response) =>
 {

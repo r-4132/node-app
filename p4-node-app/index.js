@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const helmet = require('helmet')
+require('dotenv').config();
 
 const server = express();
 const PORT   = 8000;
@@ -17,6 +19,12 @@ server.use( cors() );
 server.use( baseURL, RecipeRoutes );
 server.use( baseURL, RateRoutes );
 server.use( baseURL, CommentRoutes );
+server.use(helmet());
+
+server.get('/', ( request, response ) => 
+{
+    response.status(200).send(`Welcome to Express App`);
+});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
