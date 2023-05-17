@@ -4,7 +4,7 @@ const Comment = require('../models/CommentModel');
 
 router.post('/comment', (request, response) =>
 {
-    const { name, email, content } = request.body;
+    const { name, email, content, rating } = request.body;
 
     if(!name || !email)
     {
@@ -14,7 +14,8 @@ router.post('/comment', (request, response) =>
         {
             name,
             email,
-            content
+            content,
+            rating
         }
     );
 
@@ -25,7 +26,7 @@ router.post('/comment', (request, response) =>
         })
     .catch(error => 
         {
-            response.status(404).send({error: 'meal is not found'})
+            response.status(404).send({error: 'no comment'})
         })
 
 })
@@ -33,7 +34,8 @@ router.post('/comment', (request, response) =>
 router.delete('/comment/:id', (request, response) =>
 {
     const commentId = request.params.id;
-    Comment.findByIdAndDelete(commentId)
+    const rating = request.body;
+    Comment.findByIdAndDelete(commentId, rating)
     .then(deleteComment =>
         {
             if(!deleteComment)
@@ -48,6 +50,34 @@ router.delete('/comment/:id', (request, response) =>
         });
 });
 
+router.put('/comment/:id', (request, response) =>
+{
+    const commentId = request.params.id;
+    const{content, rating} = request.body;
+
+    Comment.findById(commentId)
+    .then(comment =>
+        {
+            if(!comment)
+            {
+                return response.status(400).send({error:'comment not found'});
+            }
+            comment.content = content;
+            comment.rating = rating;
+            return comment.save();
+        })
+
+    .then(updateComment =>
+        {
+            response.status(200).send({comment:updateComment});
+        }) 
+    .catch(error =>
+        {
+            response.status(400).send({ error: 'Failed to update comment' });
+        })
+
+
+})
 
   
 
