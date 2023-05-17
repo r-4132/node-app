@@ -16,9 +16,9 @@ router.get( '/recipeList', ( request, response ) =>
         });
 });
 
-router.get('/ingredients/:ingredients', (request, response) =>
+router.get('/ingredients', (request, response) =>
 {
-    const ingredients = request.params.ingredients.split(','); 
+    const ingredients = request.query.ingredients.split(','); 
     const findIng = { $and: ingredients.map(ingredient => ({ [`ingredients.${ingredient}`]: { $exists: true } })) }; // the equavalent of && that all ingredients input must be met and will acces object key and checks if it exist.
 
     Recipe.find(findIng)
