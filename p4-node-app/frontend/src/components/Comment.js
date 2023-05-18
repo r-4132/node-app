@@ -1,28 +1,69 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 
 function Comment(props) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [comment, setComment] = useState('');
-  const [comments, setComments] = useState(JSON.parse(localStorage.getItem("comments")) || []); // load comments from local storage or assign an empty array if there are no comments
+  const [comments, setComments] = useState([]);
 
-  const handleCommentSubmit = (event) => 
+  useEffect(() =>
+  {
+    fetchComments();
+
+  },[])
+
+  const fetchComments = async () =>
+  {
+    try
+    {
+      const response = await axios.get('http://localhost:8000/api/v1/recipes/comments');
+      setComments(response.data.comments);
+    }
+    catch (error)
+    {
+      console.error('Failed to fetch comments:', error);
+
+    }
+  }
+
+  const handleCommentSubmit = async (event) => 
   {
     event.preventDefault();
 
     const newComment = 
     {
-      recipeName: props.recipeName, //  set to the value of the recipeName prop from Recipe.js
-      commentText: comment
+      name,
+      email,
+      content: comment,
+      rating: 0 
+    };
+
+
+    try
+    {
+      const response = await axios.post('http://localhost:8000/api/v1/recipes/comment', newComment);
+      const updatedComments = [...comments, response.data.comment];
+      setComments(updatedComments);
+      setName('');
+      setEmail('');
+      setComment('');
     }
 
-    const updatedComments = [...comments, newComment]; // add new comment to existing comments
-    localStorage.setItem("comments", JSON.stringify(updatedComments)); // save updated comments to local storage
-    setComments(updatedComments); // update state with new comments
-    setComment(''); // reset comment input field
+    catch (error)
+    {
+      console.error('Failed to fetch comments:', error);
+
+    }
+
+
   }
 
   return (
     <div>
       <form onSubmit={handleCommentSubmit}>
+      <input type="text" value={name} onChange={(event) => setName(event.target.value)} placeholder="Name" required />
+        <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email" required />
         <textarea value={comment} onChange={(event) => setComment(event.target.value)}></textarea>
         <button type="submit">Add Comment</button>
       </form>
