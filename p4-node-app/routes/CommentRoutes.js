@@ -38,7 +38,7 @@ router.delete('/comment/:id', (request, response) =>
     const commentId = request.params.id;
     const rating = request.body;
     
-    Comment.findByIdAndUpdate(commentId,  { deleted: true }, { new: true }, rating)
+    Comment.findByIdAndUpdate(commentId,  { deleted: true }, { new: true }, rating) // I believe what this means, if there is a commentId, set the deleted to true and { new: true } will will give obejct after the updates is applied
     .then(deleteComment =>
         {
             if(!deleteComment)
