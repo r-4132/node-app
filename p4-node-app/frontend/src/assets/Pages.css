@@ -1,0 +1,68 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* overflow: hidden; */
+}
+
+#recipes_container
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 80%;
+  /* background-color: #5e8698; */
+}
+h2
+{
+  text-align: center;
+  
+}
+@font-face {
+  font-family:'JosefinSans-SemiBold';
+  src: url('/public/JosefinSans-SemiBold.ttf') format('truetype');
+}
+body
+{
+  background-color: #f0ecc9;
+  
+}
+
+#recipes_card
+{
+  flex-direction: column;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 8px;
+  position: relative;
+}
+
+#img_recipe
+{
+  width: 250px;
+  border-radius: 10px;
+}
+
+
+#recipes_title
+{
+  position: absolute;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: white;
+ 
+  
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7));
+  border-radius: 10px;
+
+  
+}
+
