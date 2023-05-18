@@ -37,6 +37,49 @@ router.get('/ingredients', (request, response) =>
         })
 })
 
+router.get('/search', (request, response) => 
+{
+    const { ingredients, diet, dish, meal } = request.query;
+    const query = {};
+  
+
+    if (ingredients) 
+    {
+      const ingredientList = ingredients.split(',');
+      
+      query.$and = ingredientList.map((ingredient) => 
+      ({
+        [`ingredients.${ingredient}`]: { $exists: true },
+      }));
+    }
+  
+    if (diet) 
+    {
+      query.diet = { $regex: new RegExp(diet, 'i') };
+    }
+  
+    if (dish) 
+    {
+      query.dish = { $regex: new RegExp(dish, 'i') };
+    }
+  
+    if (meal) 
+    {
+      query.meal = { $regex: new RegExp(meal, 'i') };
+    }
+  
+    Recipe.find(query)
+      .then((recipes) => 
+      {
+        response.status(200).send({ recipes });
+      })
+      .catch((error) => 
+      {
+        response.status(404).send({ error: 'Recipes not found' });
+      });
+  });
+  
+
 
 router.get('/diet/:diet', (request, response) =>
 {
@@ -82,6 +125,7 @@ router.get('/dish/:dish', (request, response) =>
             response.status(404).send({error: 'meal is not found'})
         })
 })
+
 
 
 
