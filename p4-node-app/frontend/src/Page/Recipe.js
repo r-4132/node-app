@@ -22,10 +22,12 @@ function Recipe()
     );
     
     const ingredientsData = await data.json();
+
     setIngredients(ingredientsData.recipe.ingredients);
     setRecipeName(ingredientsData.recipe.name);
     setRecipeImage(ingredientsData.recipe.image);
-    console.log(ingredientsData);
+    // console.log(ingredientsData);
+    console.log(ingredientsData.recipe._id)
     
 
   };
@@ -40,9 +42,9 @@ function Recipe()
   {
     const bookmarkedRecipes = JSON.parse(localStorage.getItem("bookmarkedRecipes")) || []; // if nothing is stored in "bookmarkedRecipes", the fallback value || [] will assigns it to an empty array 
      
-    if (bookmarkedRecipes.find(recipe => recipe.id === ingredients.id)) 
+    if (bookmarkedRecipes.find(recipe => recipe._id === ingredients._id)) 
     {
-      const filteredRecipes = bookmarkedRecipes.filter(recipe => recipe.id !== ingredients.id); // filter out the and find the recipe that matches the current ingredients.id
+      const filteredRecipes = bookmarkedRecipes.filter(recipe => recipe._id !== ingredients._id); // filter out the and find the recipe that matches the current ingredients.id
       localStorage.setItem("bookmarkedRecipes", JSON.stringify(filteredRecipes)); // save it to filteredRecipes that is being converted to JSON STRING BY JSON.stringify in order to be stored as a text
       setBookmarked(false);
     } 
@@ -68,13 +70,14 @@ function Recipe()
 
       <IngredientsContainer>
         {
-          Object.entries(ingredients).map(([ingredient, amount]) =>
+          Object.entries(ingredients).map(([ingredient, amount]) => //returns the object and the value as an array
           <li key={ingredient}>{ingredient}: {amount}</li>)
         }
       </IngredientsContainer>
       {bookmarked ? ( <BookmarkButton onClick={handleBookmark}>Remove</BookmarkButton> ) : ( <BookmarkButton onClick={handleBookmark}>Bookmark</BookmarkButton> )}
       <StarRating recipeName={recipeName} />
-      <Comment recipeName={recipeName} />
+      <Comment recipeId={params.id} />
+      
         </Card>
 
 

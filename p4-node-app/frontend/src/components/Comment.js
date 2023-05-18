@@ -6,7 +6,6 @@ function Comment(props) {
   const [email, setEmail] = useState('');
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState([]);
-
   useEffect(() =>
   {
     fetchComments();
@@ -17,8 +16,9 @@ function Comment(props) {
   {
     try
     {
-      const response = await axios.get('http://localhost:8000/api/v1/recipes/comments');
+      const response = await axios.get('http://localhost:8000/api/v1/recipes/comment');
       setComments(response.data.comments);
+      console.log(response.data.comments);
     }
     catch (error)
     {
@@ -58,6 +58,7 @@ function Comment(props) {
 
 
   }
+  
 
   return (
     <div>
@@ -68,12 +69,11 @@ function Comment(props) {
         <button type="submit">Add Comment</button>
       </form>
       <ul>
-        {
-          comments.filter(filter => filter.recipeName === props.recipeName).map((comment, index) => //this will filter out comments that are made in that specific recipe name
-          (
-            <div key={index}>{comment.commentText}</div>
-          )
-        )}
+        {comments
+          .filter((comment) => comment.recipeId === props.recipeName) // Modify the filter condition
+          .map((comment, index) => (
+            <div key={index}>{comment.content}</div>
+          ))}
       </ul>
     </div>
   );
