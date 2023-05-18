@@ -13,16 +13,18 @@ function Recipe()
   const [ingredients, setIngredients] = useState({}); // 
   const [bookmarked, setBookmarked] = useState(false);
   const [recipeName, setRecipeName] = useState(''); //Comment component will be able to have acces to recipe id or name with this state
+  const [recipeImage, setRecipeImage] = useState('');
 
   const fetchRecipes = async() => // I wanted to try different ways to fetch data from api.
   {
     const data = await fetch(
-      `https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`
+      `http://localhost:8000/api/v1/recipes/recipe/${params.name}`
     );
     
     const ingredientsData = await data.json();
-    setIngredients(ingredientsData);
-    setRecipeName(params.name);
+    setIngredients(ingredientsData.recipe.ingredients);
+    setRecipeName(ingredientsData.recipe.name);
+    setRecipeImage(ingredientsData.recipe.image);
     console.log(ingredientsData);
     
 
@@ -56,8 +58,8 @@ function Recipe()
   return (
     <Container>
       <Card>
-        <h1 className='ingredients_title'>{ingredients.title}</h1>
-        <Image><img src={ingredients.image} alt={ingredients.title} /></Image>
+        <h1 className='ingredients_title'>{recipeName}</h1>
+        <Image><img src={recipeImage} alt={ingredients.title} /></Image>
         <h3>Directions</h3>
         {/* dangerouslySetInnerHTML the render out the html code from the api */}
         <br></br>
@@ -66,9 +68,8 @@ function Recipe()
 
       <IngredientsContainer>
         {
-          ingredients.extendedIngredients && ingredients.extendedIngredients.map((items) => ( //define ingredients.extendedIngredients to prevent error
-          <li key ={items.id}>{items.original}</li>
-          ))
+          Object.entries(ingredients).map(([ingredient, amount]) =>
+          <li key={ingredient}>{ingredient}: {amount}</li>)
         }
       </IngredientsContainer>
       {bookmarked ? ( <BookmarkButton onClick={handleBookmark}>Remove</BookmarkButton> ) : ( <BookmarkButton onClick={handleBookmark}>Bookmark</BookmarkButton> )}

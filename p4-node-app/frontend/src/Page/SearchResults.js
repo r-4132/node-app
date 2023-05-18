@@ -18,8 +18,8 @@ const SearchResults = () =>
             <div id='recipes_card' key={recipe._id}>
                 <Link to={`/recipe/${recipe._id}`}>  
                 {/* Link is to redirect page to a new one */}
-                  <img src={recipe.image} alt={recipe.title} />
-                  <p id='recipes_title'>{recipe.title}</p>
+                  <img src={recipe.image} alt={recipe.name} />
+                  <p id='recipes_title'>{recipe.name}</p>
                 </Link>
             </div>
             )
