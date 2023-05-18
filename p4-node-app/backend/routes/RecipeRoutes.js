@@ -21,23 +21,23 @@ router.get( '/recipe/:id', ( request, response ) =>
         });
 });
 
-router.get('/ingredients', (request, response) =>
-{
-    const ingredients = request.query.ingredients.split(','); 
-    const findIng = { $and: ingredients.map(ingredient => ({ [`ingredients.${ingredient}`]: { $exists: true } })) }; // the equavalent of && that all ingredients input must be met and will acces object key and checks if it exist.
+// router.get('/ingredients', (request, response) =>
+// {
+//     const ingredients = request.query.ingredients.split(','); 
+//     const findIng = { $and: ingredients.map(ingredient => ({ [`ingredients.${ingredient}`]: { $exists: true } })) }; // the equavalent of && that all ingredients input must be met and will acces object key and checks if it exist.
 
-    Recipe.find(findIng)
-    .then(ingredients =>
-        {
-            response.status(200).send({ingredients});
-        })
-    .catch(error =>
-        {
-            response.status(404).send({ error: 'Ingredients not found' });
-        })
-})
+//     Recipe.find(findIng)
+//     .then(ingredients =>
+//         {
+//             response.status(200).send({ingredients});
+//         })
+//     .catch(error =>
+//         {
+//             response.status(404).send({ error: 'Ingredients not found' });
+//         })
+// })
 
-router.get('/search', (request, response) => 
+router.get('/ingredients', (request, response) => 
 {
     const { ingredients, diet, dish, meal } = request.query;
     const query = {};
@@ -46,7 +46,7 @@ router.get('/search', (request, response) =>
     if (ingredients) 
     {
       const ingredientList = ingredients.split(',');
-      
+
       query.$and = ingredientList.map((ingredient) => 
       ({
         [`ingredients.${ingredient}`]: { $exists: true },
