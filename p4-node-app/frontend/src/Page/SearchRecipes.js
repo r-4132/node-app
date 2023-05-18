@@ -9,8 +9,9 @@ import { SearchBox, Card,ContainerTypes ,DietTypes  } from "../assets/Style";
 const SearchRecipes = () => 
 {
   const [searchInput, setSearchInput] = useState('');
-  const [cuisine, setCuisine] = useState([]);
+  const [meal, setMeal] = useState([]);
   const [diet, setDietTypes] = useState([]);
+  const [dish, setDishTypes] = useState([]);
   
 
   const navigate = useNavigate(); // from react-router-dom library
@@ -26,13 +27,16 @@ const SearchRecipes = () =>
       const response = await axios.get('http://localhost:8000/api/v1/recipes/ingredients', 
       {
           params: {
-              ingredients: ingredientsArray.join(',') // this will join the by comma which is required by the url
+              ingredients: ingredientsArray.join(','), // this will join the by comma which is required by the url
+              diet: diet.join(','), // this will join the by comma which is required by the url
+              dish: dish.join(','), // this will join the by comma which is required by the url
+              meal: meal.join(','), // this will join the by comma which is required by the url
               // number: 8, // limit number of results to 10
               // ranking: 1, // prioritize results with most missing ingredients
             }
           });
           console.log(response.data)
-          navigate(`/search-results/${searchInput}`, { state: { results: response.data.ingredients } }); //the first arguement will replace the url base on what the user input, the 2nd argument, state has the value of results w/c another object with a property w/c also has a value of response.data
+          navigate(`/search-results/${searchInput}`, { state: { results: response.data.recipes } }); //the first arguement will replace the url base on what the user input, the 2nd argument, state has the value of results w/c another object with a property w/c also has a value of response.data
     } 
 
     catch (error)
@@ -41,21 +45,12 @@ const SearchRecipes = () =>
 
     }
 };
-const cuisineList =  //array of dishes
+const mealList =  //array of dishes
 [
-  'American',
-  'Chinese',
-  'European',
-  'French',
-  'German',
-  'Greek',
-  'Indian',
-  'Italian',
-  'Japanese',
-  'Mediterranean',
-  'Nordic',
-  'Thai',
-  'Vietnamese'
+  'Breakfast',
+  'Lunch',
+  'Dinner',
+
 ];
 
 const dietTypesList =
@@ -90,7 +85,7 @@ const handleCheckboxChange = (set) => (event) => //to my understanding this is a
   }
 };
 
-const handleCuisine = handleCheckboxChange(setCuisine);
+const handleMeal = handleCheckboxChange(setMeal);
 const handleDietTypes = handleCheckboxChange(setDietTypes);
 
 return (
@@ -107,10 +102,10 @@ return (
         <ContainerTypes>
           <Card>
             <cuisine>
-          <p>Filter by Cuisine:</p>
-          {cuisineList.map((type, index) => ( // looping over dishtypes
+          <p>Filter by Meal</p>
+          {mealList.map((type, index) => ( // looping over dishtypes
             <label key={index}>
-            <input type="checkbox" value={type} onChange={handleCuisine} />
+            <input type="checkbox" value={type} onChange={handleMeal} />
             {type}
           </label>
           
