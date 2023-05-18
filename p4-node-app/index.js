@@ -9,7 +9,9 @@ const server = express();
 const PORT   = 8000;
 const baseURL = "/api/v1/recipes";
 
-mongoose.connect('mongodb://127.0.0.1:27017/recipedb');
+// mongoose.connect('mongodb://127.0.0.1:27017/recipedb');
+mongoose.connect('mongodb+srv://rrtanoco:recipe123@recipe.432h2xn.mongodb.net/recipe');
+
 const RecipeRoutes = require('./routes/RecipeRoutes')
 const RateRoutes = require('./routes/RateRoutes')
 const CommentRoutes = require('./routes/CommentRoutes')

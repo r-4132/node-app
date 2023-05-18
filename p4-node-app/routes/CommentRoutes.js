@@ -32,7 +32,7 @@ router.post('/comment', (request, response) =>
             response.status(404).send({error: 'no comment'})
         })
 
-})
+}) 
 router.delete('/comment/:id', (request, response) =>
 {
     const commentId = request.params.id;
