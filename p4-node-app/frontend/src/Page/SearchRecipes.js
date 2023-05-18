@@ -52,20 +52,22 @@ const mealList =  //array of dishes
   'Dinner',
 
 ];
+const dishList =  //array of dishes
+[
+  'Main',
+  'Dessert',
+  'Side Dish',
+  'Appetizer',
+
+];
 
 const dietTypesList =
 [
   'Gluten Free',
   'Keto',
   'Vegetarian',
-  'No eggs',
-  'Dairy Free',
   'Vegan',
-  'Pescetarian',
-  'Paleo',
-  'Primal',
-  'Low FODMAP',
-  'Whole30'
+  'Pescetarian'
   
 ]
 
@@ -85,6 +87,7 @@ const handleCheckboxChange = (set) => (event) => //to my understanding this is a
   }
 };
 
+const handleDishTypes = handleCheckboxChange(setDishTypes);
 const handleMeal = handleCheckboxChange(setMeal);
 const handleDietTypes = handleCheckboxChange(setDietTypes);
 
@@ -117,6 +120,17 @@ return (
           {dietTypesList.map((type, index) => ( // looping over dishtypes
             <label key={index}>
             <input type="checkbox" value={type} onChange={handleDietTypes} />
+            {type}
+          </label>
+          
+          ))}
+            </DietTypes>
+
+            <DietTypes>
+          <p>Filter by Dish:</p>
+          {dishList.map((type, index) => ( // looping over dishtypes
+            <label key={index}>
+            <input type="checkbox" value={type} onChange={handleDishTypes} />
             {type}
           </label>
           
