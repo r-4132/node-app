@@ -15,8 +15,8 @@ const SearchResults = () =>
         results.map((recipe) => //iterate each recipes found 
         {
             return(
-            <div id='recipes_card' key={recipe.id}>
-                <Link to={`/recipe/${recipe.id}`}>  
+            <div id='recipes_card' key={recipe._id}>
+                <Link to={`/recipe/${recipe._id}`}>  
                 {/* Link is to redirect page to a new one */}
                   <img src={recipe.image} alt={recipe.title} />
                   <p id='recipes_title'>{recipe.title}</p>

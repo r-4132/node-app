@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { SearchBox, Card,ContainerTypes ,cuisine ,DietTypes  } from "../assets/Style";
+import { SearchBox, Card,ContainerTypes ,DietTypes  } from "../assets/Style";
 
 
 
@@ -23,19 +23,16 @@ const SearchRecipes = () =>
       const ingredientsArray = searchInput.split(' '); // will split up ingredients typed by the user into spaces
       
 
-      const response = await axios.get('https://api.spoonacular.com/recipes/complexSearch', 
+      const response = await axios.get('http://localhost:8000/api/v1/recipes/ingredients', 
       {
           params: {
-              apiKey: process.env.REACT_APP_API_KEY,
-              query: ingredientsArray.join(','), // this will join the by comma which is required by the url
-              number: 8, // limit number of results to 10
-              ranking: 1, // prioritize results with most missing ingredients
-              cuisine: cuisine.join(','), //to select dish types
-              diet: diet.join(',') // .join convert array to string
+              ingredients: ingredientsArray.join(',') // this will join the by comma which is required by the url
+              // number: 8, // limit number of results to 10
+              // ranking: 1, // prioritize results with most missing ingredients
             }
           });
-          
-          navigate(`/search-results/${searchInput}`, { state: { results: response.data.results } }); //the first arguement will replace the url base on what the user input, the 2nd argument, state has the value of results w/c another object with a property w/c also has a value of response.data
+          console.log(response.data)
+          navigate(`/search-results/${searchInput}`, { state: { results: response.data.ingredients } }); //the first arguement will replace the url base on what the user input, the 2nd argument, state has the value of results w/c another object with a property w/c also has a value of response.data
     } 
 
     catch (error)
