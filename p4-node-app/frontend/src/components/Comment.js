@@ -61,6 +61,25 @@ function Comment(props) {
   }
   // console.log('props.recipeId:', props.recipeId);
 
+  const handleDelete = async (commentId) =>
+  {
+    try
+    {
+      await axios.delete(`http://localhost:8000/api/v1/recipes/comment/${commentId}`);
+      const updatedComments = comments.filter((comment) => comment._id !== commentId);
+      setComments(updatedComments);
+    }
+    catch (error)
+    {
+      console.error('Failed to delete comment:', error);
+
+    }
+  }
+
+  
+
+  
+
 
   return (
     <div>
@@ -72,9 +91,12 @@ function Comment(props) {
       </form>
       <ul>
         {comments
-          .filter((comment) => comment.recipeId === props.recipeId) // Modify the filter condition
+          .filter((comment) => comment.recipeId === props.recipeId && comment.deleted === false) // filter comments that are made in that recipe page 
           .map((comment, index) => (
-            <div key={index}>{comment.content}</div>
+            <div key={index}>
+              {comment.content}
+              <button onClick={() => handleDelete(comment._id)}>Delete</button>
+            </div>
           ))}
       </ul>
     </div>
