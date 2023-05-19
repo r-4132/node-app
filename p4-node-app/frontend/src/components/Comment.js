@@ -36,7 +36,8 @@ function Comment(props) {
       name,
       email,
       content: comment,
-      rating: 0 
+      rating: 0,
+      recipeId:props.recipeId
     };
 
 
@@ -58,7 +59,8 @@ function Comment(props) {
 
 
   }
-  
+  // console.log('props.recipeId:', props.recipeId);
+
 
   return (
     <div>
@@ -70,7 +72,7 @@ function Comment(props) {
       </form>
       <ul>
         {comments
-          .filter((comment) => comment.recipeId === props.recipeName) // Modify the filter condition
+          .filter((comment) => comment.recipeId === props.recipeId) // Modify the filter condition
           .map((comment, index) => (
             <div key={index}>{comment.content}</div>
           ))}

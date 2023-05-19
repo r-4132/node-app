@@ -14,6 +14,7 @@ function Recipe()
   const [bookmarked, setBookmarked] = useState(false);
   const [recipeName, setRecipeName] = useState(''); //Comment component will be able to have acces to recipe id or name with this state
   const [recipeImage, setRecipeImage] = useState('');
+  const [recipeId, setRecipeId] = useState('');
 
   const fetchRecipes = async() => // I wanted to try different ways to fetch data from api.
   {
@@ -27,7 +28,7 @@ function Recipe()
     setRecipeName(ingredientsData.recipe.name);
     setRecipeImage(ingredientsData.recipe.image);
     // console.log(ingredientsData);
-    console.log(ingredientsData.recipe._id)
+    setRecipeId(ingredientsData.recipe._id)
     
 
   };
@@ -76,7 +77,7 @@ function Recipe()
       </IngredientsContainer>
       {bookmarked ? ( <BookmarkButton onClick={handleBookmark}>Remove</BookmarkButton> ) : ( <BookmarkButton onClick={handleBookmark}>Bookmark</BookmarkButton> )}
       <StarRating recipeName={recipeName} />
-      <Comment recipeId={params.id} />
+      <Comment recipeId={recipeId} />
       
         </Card>
 
