@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 
+
 function Comment(props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState([]);
+  
   useEffect(() =>
   {
     fetchComments();
@@ -61,6 +63,8 @@ function Comment(props) {
   }
   // console.log('props.recipeId:', props.recipeId);
 
+
+
   const handleDelete = async (commentId) =>
   {
     try
@@ -78,18 +82,32 @@ function Comment(props) {
 
   const handleEdit = async (commentId) =>
   {
-    try
+    const updatedContent = prompt('Enter the updated comment content:');
+    if (updatedContent)
     {
-      await axios.put(`http://localhost:8000/api/v1/recipes/comment/${commentId}`);
-      const updatedComments = comments.filter((comment) => comment._id !== commentId);
-      setComments(updatedComments);
-    }
-    catch (error)
-    {
-      console.error('Failed to delete comment:', error);
 
+      try
+      {
+        await axios.put(`http://localhost:8000/api/v1/recipes/comment/${commentId}`, { content: updatedContent });
+        const updatedComments = comments.filter((comment) => 
+        {
+          if (comment._id === commentId)
+          {
+            comment.content = updatedContent;
+
+          }
+          return comment;
+        })
+        setComments(updatedComments);
+      }
+      catch (error)
+      {
+        console.error('Failed to delete comment:', error);
+  
+      }
     }
   }
+
 
   
 

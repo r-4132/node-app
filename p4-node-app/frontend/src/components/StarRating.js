@@ -1,5 +1,7 @@
 import React, { useReducer, useEffect } from 'react';
 import { FaStar } from 'react-icons/fa';
+import Comment from './Comment'
+
 
 const initialState = { rating: null }; //initialization. Set the value of rating to null
 
