@@ -76,6 +76,21 @@ function Comment(props) {
     }
   }
 
+  const handleEdit = async (commentId) =>
+  {
+    try
+    {
+      await axios.put(`http://localhost:8000/api/v1/recipes/comment/${commentId}`);
+      const updatedComments = comments.filter((comment) => comment._id !== commentId);
+      setComments(updatedComments);
+    }
+    catch (error)
+    {
+      console.error('Failed to delete comment:', error);
+
+    }
+  }
+
   
 
   
@@ -95,9 +110,17 @@ function Comment(props) {
           .map((comment, index) => (
             <div key={index}>
               {comment.content}
-              <button onClick={() => handleDelete(comment._id)}>Delete</button>
+              {comments.length > 0 && 
+              (
+                <div>
+                  <button onClick={() => handleDelete(comment._id)}>Delete</button>
+                  <button onClick={() => handleEdit(comment._id)}>Edit</button>
+
+                </div>
+              )}
             </div>
           ))}
+          {comments.length === 0 && <div>No comments yet.</div>}
       </ul>
     </div>
   );
