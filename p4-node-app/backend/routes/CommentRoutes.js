@@ -6,7 +6,7 @@ const Comment = require('../models/CommentModel');
 
 router.post('/comment', (request, response) =>
 {
-    const { name, content, rating } = request.body;
+    const { name, content, rating, recipeId } = request.body;
     const email = process.env.EMAIL;
 
     if(!name || !email)
@@ -18,7 +18,8 @@ router.post('/comment', (request, response) =>
             name,
             email,
             content,
-            rating
+            rating,
+            recipeId,
         }
     );
 
@@ -33,6 +34,7 @@ router.post('/comment', (request, response) =>
         })
 
 }) 
+
 router.delete('/comment/:id', (request, response) =>
 {
     const commentId = request.params.id;
@@ -83,6 +85,20 @@ router.put('/comment/:id', (request, response) =>
 
 
 })
+
+router.get('/comment', (request, response) =>
+{
+    Comment.find()
+    .then(comments =>
+        {
+            response.status(200).send({comments});
+        })
+    .catch(error =>
+        {
+            response.status(500).send({error: error.message});
+        });
+})
+
 
   
 

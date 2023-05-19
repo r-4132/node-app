@@ -5,7 +5,8 @@ const CommentSchema = mongoose.Schema({
     email:    String,
     content: String,
     rating: Number,
-    deleted: { type: Boolean, default: false }
+    deleted: { type: Boolean, default: false },
+    recipeId: String
 });
 
 module.exports = mongoose.model( 'Comment', CommentSchema );
