@@ -85,33 +85,35 @@ function Comment(props) {
     const updatedContent = prompt('Enter the updated comment content:');
     if (updatedContent)
     {
-
-      try
+      const updatedRating = prompt('Enter the updated comment content:');
+      if(updatedRating)
       {
-        await axios.put(`http://localhost:8000/api/v1/recipes/comment/${commentId}`, { content: updatedContent });
-        const updatedComments = comments.filter((comment) => 
+
+        try
         {
-          if (comment._id === commentId)
+          await axios.put(`http://localhost:8000/api/v1/recipes/comment/${commentId}`, { content: updatedContent, rating: updatedRating });
+          const updatedComments = comments.filter((comment) => 
           {
-            comment.content = updatedContent;
-
-          }
-          return comment;
-        })
-        setComments(updatedComments);
-      }
-      catch (error)
-      {
-        console.error('Failed to delete comment:', error);
+            if (comment._id === commentId)
+            {
+              comment.content = updatedContent;
+              comment.rating = updatedRating;
   
+            }
+            return comment;
+          })
+          setComments(updatedComments);
+        }
+        catch (error)
+        {
+          console.error('Failed to delete comment:', error);
+    
+        }
       }
+
     }
   }
 
-
-  
-
-  
 
 
   return (
