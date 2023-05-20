@@ -1,6 +1,7 @@
 import React, { useReducer, useEffect } from 'react';
 import { FaStar } from 'react-icons/fa';
 import Comment from './Comment'
+import Recipe from '../Page/Recipe';
 
 
 const initialState = { rating: null }; //initialization. Set the value of rating to null
@@ -14,31 +15,31 @@ function reducer(state, action)
         rating: action.payload //payload is used to pass the new rating value
     };
 
-    case 'UPDATE_RATING': // reducer updates the local storage
-      const ratings = JSON.parse(localStorage.getItem('ratings')) || {}; // same as hand
-      ratings[action.recipeName] = action.payload;
-      localStorage.setItem('ratings', JSON.stringify(ratings));
-      return {
-        rating: action.payload
-      };
+    // case 'UPDATE_RATING': // reducer updates the local storage
+    //   const ratings = JSON.parse(localStorage.getItem('ratings')) || {}; // same as hand
+    //   ratings[action.recipeName] = action.payload;
+    //   localStorage.setItem('ratings', JSON.stringify(ratings));
+    //   return {
+    //     rating: action.payload
+    //   };
     default:
       return state;
   }
 }
 
-function StarRating({ recipeName }) 
+function StarRating(props) 
 {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(() => 
-  {
-    const ratings = JSON.parse(localStorage.getItem('ratings')) || {};
-    const rating = ratings[recipeName]; // useEffect retrieves data by using recipeName as key
-    if (rating) 
-    {
-      dispatch({ type: 'SET_RATING', payload: rating }); // this triggers reducer to update 
-    }
-  }, [recipeName]);
+  // useEffect(() => 
+  // {
+  //   const ratings = JSON.parse(localStorage.getItem('ratings')) || {};
+  //   const rating = ratings[recipeName]; // useEffect retrieves data by using recipeName as key
+  //   if (rating) 
+  //   {
+  //     dispatch({ type: 'SET_RATING', payload: rating }); // this triggers reducer to update 
+  //   }
+  // }, [recipeName]);
 
   return (
     <div>
@@ -51,9 +52,9 @@ function StarRating({ recipeName })
             <input
               id="star_rad"
               type="radio"
-              name={`rating_${recipeName}`}
+              name='rating'
               value={ratingValue}
-              onChange={() => dispatch({ type: 'UPDATE_RATING', payload: ratingValue, recipeName })}
+              onChange={() => dispatch({ type: 'SET_RATING', payload: ratingValue })}
             />
             <FaStar
               id="star"
@@ -63,8 +64,10 @@ function StarRating({ recipeName })
           </label>
         );
       })}
+      <Comment recipeId={props.recipeId} rating = {state.rating} />
     </div>
   );
 }
 
 export default StarRating;
+

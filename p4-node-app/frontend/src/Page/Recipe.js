@@ -76,8 +76,8 @@ function Recipe()
         }
       </IngredientsContainer>
       {bookmarked ? ( <BookmarkButton onClick={handleBookmark}>Remove</BookmarkButton> ) : ( <BookmarkButton onClick={handleBookmark}>Bookmark</BookmarkButton> )}
-      <StarRating recipeName={recipeName} />
-      <Comment recipeId={recipeId} />
+      <StarRating recipeId={recipeId}/>
+      {/* <Comment recipeId={recipeId} /> */}
       
         </Card>
 

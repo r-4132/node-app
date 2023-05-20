@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-
+import StarRating from './StarRating';
 
 function Comment(props) {
   const [name, setName] = useState('');
@@ -38,7 +38,7 @@ function Comment(props) {
       name,
       email,
       content: comment,
-      rating: 0,
+      rating: props.rating,
       recipeId:props.recipeId
     };
 
@@ -128,6 +128,7 @@ function Comment(props) {
           .map((comment, index) => (
             <div key={index}>
               {comment.content}
+              <p>Rating: {comment.rating}</p> 
               {comments.length > 0 && 
               (
                 <div>
