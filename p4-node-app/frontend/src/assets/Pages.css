@@ -18,6 +18,22 @@
   width: 80%;
   /* background-color: #5e8698; */
 }
+#recipe_container
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 20px;
+  /* background-color: #5e8698; */
+}
+#image_recipe
+{
+  width: 250px;
+  border-radius: 10px;
+}
 h2
 {
   text-align: center;

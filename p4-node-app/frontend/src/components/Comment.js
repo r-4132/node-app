@@ -85,7 +85,7 @@ function Comment(props) {
     const updatedContent = prompt('Enter the updated comment content:');
     if (updatedContent)
     {
-      const updatedRating = prompt('Enter the updated comment content:');
+      const updatedRating = prompt('Enter the updated rating content:');
       if(updatedRating)
       {
 
