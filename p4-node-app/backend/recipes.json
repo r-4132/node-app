@@ -3,7 +3,7 @@
       "name":"Best Fluffy Pancakes" ,
       "image":"https://www.allrecipes.com/thmb/tOfkDV1xc28JMmITPQlQwy3FNWs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/21014-Good-old-Fashioned-Pancakes-mfs_001-1fa26bcdedc345f182537d95b6cf92d8.jpg",
       "dish":"main",
-      "meal":"breakfast",
+      "meal":["breakfast"],
       "diet":[
        "vegetarian",
        "gluten-free",
@@ -11,14 +11,14 @@
        "keto"
       ],
       "ingredients": {
-       "plain flour":"290g" ,
+      "flour":"Plain, 290g (replace with gluten free flour to make it GF)" ,
        "sugar":"60g",
        "baking powder":"4 teaspoons",
        "baking soda":"1/4 teaspoons",
        "salt":"1/2 teaspoon",
        "milk":"1 3/4 cups",
        "butter":"1/4 cup",
-       "pure vanilla extract":"2 teaspoons",
+       "vanilla":" Extract, 2 teaspoons",
        "egg":"1 large"
       },
       "instructions":{
@@ -34,7 +34,7 @@
       "name":"Homemade Crepes" ,
       "image":"https://www.allrecipes.com/thmb/VR-7_dO2ksjeSNAoW_mdj1XkJRY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/4511555-dessert-crepes-Buckwheat-Queen-1x1-1-90b5c7ed132f47728b8a2fdc1c984dd0.jpg",
       "dish":"main",
-      "meal":"breakfast",
+      "meal":["breakfast"],
       "diet":[
        "vegetarian",
        "gluten-free",
@@ -60,7 +60,7 @@
    },
    {
       "name":"Bibimbap" ,
-      "image":"228240-BibimbapKoreanRiceWithMixedVegtables-ddmfs-4X3-0667-70784fdd28904e2daab245c029f978ee.webp",
+      "image":"https://www.seriouseats.com/thmb/9gYczIvS4R7ZvK19ahBns0xOG_k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230113-Bibimbap-AmandaSuarez-hero-331e5e1ffa5b400fbb684e59b14d57c1.JPG",
       "dish":"main",
       "meal":[
        "lunch",
@@ -101,6 +101,193 @@
        "Step 3":"Marinate and cook the beef and eggs",
        "Step 4":"saute and seasoon carrots, zucchini, cucumber and bell peppers",
        "Step 5":"Assemble and firmly mix. Enjoy!"
+      }
+   },
+   {
+      "name":"Old fashion Oatmeal with Berries and Cream" ,
+      "image":"https://www.eatingwell.com/thmb/-UULlbERQCfJRQTnb5bwjoo9-UQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/old-fashioned-oatmeal-hero-05-060861b81cb641cea272e068aba093fd.jpg",
+      "dish":"main",
+      "meal":["breakfast"],
+      "diet":[
+       "vegetarian",
+       "gluten-free",
+       "pescaterian",
+       "keto",
+       "Vegan"
+      ],
+      "ingredients": {
+       "Oats":"rolled old fashioned oats, 1/2 cup" ,
+       "milk":"180ml",
+       "water":"1 1/2",
+       "salt":"pinch",
+       "berries":"Fresh or Frozen(thawed), 1/2 cup",
+       "honey":"2 tps",
+       "vanilla":"extract, 1/8 tsp"
+      },
+      "instructions":{
+       "Step 1":"In a medium microwave safe bowl stir together oats, milk, water and salt. Cook in microwave 2 1/2 - 3 minutes. Stir in berries, honey and vanilla. Let cool several minutes. Top with half and half or cream.",
+       "Step 2":"*Any of these variations can be cooked on the stove top as well, just cook according to package directions."
+      }
+   },
+   {
+      "name":"Pesto Pasta" ,
+      "image":"https://cdn.loveandlemons.com/wp-content/uploads/2018/01/pesto-pasta.jpg",
+      "dish":"main",
+      "meal":[
+         "lunch",
+         "dinner"
+        ],
+      "diet":[
+       "vegetarian",
+       "gluten-free",
+       "pescaterian",
+       "keto"
+      ],
+      "ingredients": {
+       "pasta":"Spaghetti, 12 oz." ,
+       "salt":"",
+       "basil":"fresh leaves, 65g",
+       "parmesan":"1 1/2",
+       "garlic":"2 medium, peeled and smashed",
+       "olive oil":"extra virgin, 1/2 cup ",
+       "pasta water":"1/2 cup"
+      },
+      "instructions":{
+       "Step 1":"Cook spaghetti in salted water to al dente according to package directions. Before draining be sure to reserve the 1/2 cup pasta water.",
+       "Step 2":"To a 7-cup food processor add basil leaves, parmesan, pine nuts and garlic. Cover with lid and pulse in short bursts until finely minced.",
+       "Step 3":"Scrape down food processor. Cover, then with food processor running pour olive oil in through the feed tube of the lid. Don't over-process, just blend.",
+       "Step 4":"Season with salt to taste.",
+       "Step 5":"Drain pasta once al dente then add to a large serving bowl. Pour in 1/4 cup pasta water and toss. Let it cool 1 - 2 minutes.",
+       "Step 6":"Add all of the pesto and toss. Thin with up to 1/4 cup more pasta water as desired and garnish with more parmesan and pine nuts if desired."
+      }
+   },
+   {
+      "name":"Creamy Mashed Potato" ,
+      "image":"The-Best-Mashed-Potatoes-SpendWithPennies-4.jpeg",
+      "dish":"side",
+      "meal":[
+         "lunch",
+         "dinner"
+        ],
+      "diet":[
+       "vegetarian",
+       "gluten-free",
+       "pescaterian",
+       "keto"
+      ],
+      "ingredients": {
+       "potatoes":"peeled and cut into 2.5cm/1” cubes, 1.5 kg / 3 lb" ,
+       "salt":"1 tbsp",
+       "butter":"unsalted, 50 g",
+       "milk":"85 ml",
+       "extra melted butter":"OPTIONAL",
+       "chives or parsley":"OPTIONAL"
+      },
+      "instructions":{
+       "Step 1":"Place in a large pot with 1 tbsp salt. Add water so its 10cm / 4” above potatoes.",
+       "Step 2":"Bring to a boil over high heat then reduce heat so its simmering rapidly. Cook 15 minutes or until potatoes are very soft (jab with fork to test, they should fall apart).",
+       "Step 3":"Drain well, return into pot. Leave for 1 minute, shaking pot every now and then, to encourage evaporation of water.",
+       "Step 4":"Add Flavourings then mash well, using milk to make it looser if desired.",
+       "Step 5":"DO NOT use: a beater, stick blender, food processor or blender. You can pulse with a stand mixer or handheld mixer but be cautious, stop as soon as it's creamy (potatoes will quickly go from perfect to gluey using appliances).",
+       "Step 6":"Transfer to serving bowl, make pretty swirls across the top and drizzle over butter. Sprinkle with chives then serve!"
+      }
+   },
+   {
+      "name":"Chocolate Chip Cookies" ,
+      "image":"https://sallysbakingaddiction.com/wp-content/uploads/2013/05/classic-chocolate-chip-cookies.jpg",
+      "dish":"dessert",
+      "meal":[
+         "breakfast",
+         "lunch",
+         "dinner"
+        ],
+      "diet":[
+       "vegetarian",
+       "gluten-free",
+       "pescaterian",
+       "keto"
+      ],
+      "ingredients": {
+       "butter":"Salted, 4 Tablespoons" ,
+       "brown Sugar":"4 Tablespoons ",
+       "sugar":"2 Tablespoons",
+       "egg":"1 yolk",
+       "vanilla":"Extract, 2 Tablespoons",
+       "flour":"½ cup ",
+       "baking Soda":"¼ teaspoon ",
+       "chocolate chips":"⅓ cup "
+      },
+      "instructions":{
+       "Step 1":"Preheat oven to 350 degrees. In a microwave-safe bowl, heat butter for about 30 seconds in the microwave until melted. Stir in brown sugar and sugar and stir well until the sugars begin to dissolve and the mixture becomes smooth.",
+       "Step 2":"Add egg yolk and vanilla and stir well.",
+       "Step 3":"Fold in flour and baking soda and stir together. Fold in chocolate chips. ",
+       "Step 4":"Drop cookie dough onto a parchment paper lined baking sheet. This will make two to three cookies, depending on size. I suggest a light-colored baking sheet for all of my cookie recipes. Bake for 8-10 minutes. Don't overbake as the cookies will continue to bake on the warm cookie sheet once removed from the oven. "
+       
+      }
+   },
+
+   {
+      "name":"A Simple Boule" ,
+      "image":"https://www.billyparisi.com/wp-content/uploads/2019/06/poolish-7.jpg",
+      "dish":"side",
+      "meal":[
+         "breakfast",
+         "lunch",
+         "dinner"
+        ],
+      "diet":[
+       "vegetarian",
+       "gluten-free",
+       "pescaterian",
+       "keto",
+       "Vegan"
+      ],
+      "ingredients": {
+       "water":"lukewarm, 680 grams" ,
+       "salt":"20 grams",
+       "yeast":"active dry yeast, 10 grams",
+       "flour":"bread flour, 910 grams"
+      },
+      "instructions":{
+       "Step 1":"Combine the water, salt, and yeast in a mixing bowl or large tupperware. I like to put my container on top of a kitchen scale and tare it so I can easily add up the weights as I go.",
+       "Step 2":"Add in the flour, and mix with a wooden spoon until the ingredients are evenly combined. set a side for 10 mins",
+       "Step 3":"preheat oven with the dutch oven inside to 420C",
+       "Step 4":"Mix dough again and wait for 30 mins to 1 hr",
+       "Step 5":"Final shape and rest for 10 mins",
+       "Step 6":"Carefulyl remove the dutc hoven and transfer the dough. Pop the lid back in and bake for 30-45 mins "
+      }
+   },
+   {
+      "name":"Sourdough Crackers" ,
+      "image":"https://www.allrecipes.com/thmb/I-AtsiiK8nwF7AIWZL5d4s5923g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/CottageCheeseOpener_7007809_DB_2_preview-aa6ef23d2c5b4128af37308166409524.jpg",
+      "dish":"side",
+      "meal":[
+         "breakfast",
+         "lunch",
+         "dinner"
+        ],
+      "diet":[
+       "vegetarian",
+       "gluten-free",
+       "pescaterian",
+       "keto",
+       "Vegan"
+      ],
+      "ingredients": {
+       "milk":"whole milk NOT ultra-high temperature processed or “long life, 3.79 L" ,
+       "vinegar":"white, 191.25 g",
+       "salt":"1 teaspoon ",
+       "cream":"heavy, 3 tbsp "
+      },
+      "instructions":{
+       "Step 1":"Pour milk into a large, heavy-bottomed pot. Heat slowly to 190°F/88°C stirring regularly so the milk doesn’t burn on the bottom of the pot.",
+       "Step 2":"Remove from heat, pour in vinegar and stir a few times. Cover and let rest for 30 minutes.",
+       "Step 3":"Meanwhile, line a colander with a clean piece of doubled cheesecloth or a tea towel. Place the colander over another bowl to catch any liquid (whey) that drips out.",
+       "Step 4":"Spoon the solids from the pot into the lined colander. Let drain for 30 minutes.",
+       "Step 5":"Gather the ends of the cloth tightly together and form a cloth-wrapped ball of cheese. Holding this in one hand, run cold water over the ball, kneading and squeezing it with your other hand until the entire ball of cheese is cool.",
+       "Step 6":"Dump the cheese out of the cloth into a bowl and use a spoon to break it into small curds. Stir in salt to taste.",
+       "Step 7":"For creamy cottage cheese, stir in the heavy cream 2 tablespoons at a time until it reaches the desired consistency. Check taste and add more salt if needed. Stir in flavorings if desired.",
+       "Step 8":"Chill for at least 1 hour then stir before serving."
       }
    }
 ]

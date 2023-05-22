@@ -15,12 +15,14 @@ mongoose.connect('mongodb+srv://rrtanoco:recipe123@recipe.432h2xn.mongodb.net/re
 const RecipeRoutes = require('./routes/RecipeRoutes')
 const RateRoutes = require('./routes/RateRoutes')
 const CommentRoutes = require('./routes/CommentRoutes')
+const UserRoutes = require('./routes/UserRoutes')
 
 server.use( bodyParser.json() ); 
 server.use( cors() ); 
 server.use( baseURL, RecipeRoutes );
 server.use( baseURL, RateRoutes );
 server.use( baseURL, CommentRoutes );
+server.use( baseURL, UserRoutes );
 server.use(helmet());
 
 server.get('/', ( request, response ) => 

@@ -45,7 +45,7 @@ router.get('/ingredients', (request, response) =>
 
     if (ingredients) 
     {
-      const ingredientList = ingredients.split(',');
+        const ingredientList = ingredients.toLowerCase().split(',');
 
       query.$and = ingredientList.map((ingredient) => 
       ({

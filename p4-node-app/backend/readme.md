@@ -23,4 +23,31 @@ This is required to be able to use this app.
 
 **Installation**
 - Git clone https://gitlab.com/uplift-code-camp/students/batch-14/renee/project.git
-- Install NPM packages by `npm install` in terminal of the project
+- Install NPM packages by `npm install` in both the backend and frontend folder
+- On backend folder, create a .env file
+&nbsp;
+## How to use
+**For testing purposes, these are the ingredients present on the json**
+- flour
+- egg
+- strawberries(only searchable in plural form)
+- potatoes(only searchable in plural form)
+- water
+- milk
+- sugar
+- vanilla
+- cucumber
+- vinegar
+- cream
+- yeast
+- salt
+- garlic
+- parmesan
+- olive oil
+- pasta
+- pasta water
+- butter
+
+&nbsp;
+
+- Choose only one for each option for the filters (diet, meals, dish) .
