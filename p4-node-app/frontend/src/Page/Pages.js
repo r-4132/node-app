@@ -9,7 +9,8 @@ import Bookmarks from './Bookmarks';
 import AboutUs from './AboutUs';
 import { Nav, LogoImage } from '../assets/Style';
 import logoImage from '../assets/Logo.png'
-
+import Register from './Register';
+import Login from './Login';
 
 
 function Pages() {
@@ -32,6 +33,16 @@ function Pages() {
             <Link to="about-us" >About</Link>
           </li>
         </ul>
+        <ul>
+          <li>
+          <Link to="login" >Login</Link>
+          </li>
+        </ul>
+        <ul>
+          <li>
+          <Link to="register" >Register</Link>
+          </li>
+        </ul>
       </Nav>
 
     <SearchRecipes/>
@@ -41,6 +52,8 @@ function Pages() {
         <Route path="/recipe/:name" element={<Recipe />} />
         <Route path="/bookmarks" element={<Bookmarks />} />
         <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
     </Routes>
 
     
