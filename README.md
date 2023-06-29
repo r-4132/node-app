@@ -22,9 +22,11 @@ This is required to be able to use this app.
 - react
 
 **Installation**
-- Git clone https://gitlab.com/uplift-code-camp/students/batch-14/renee/project.git
+- `git init` to initialize folder
+- `git clone` https://github.com/r-4132/node-app.git
 - Install NPM packages by `npm install` in both the backend and frontend folder
-- On backend folder, create a .env file
+- On backend folder, create a .env file for the email `EMAIL=hide-email@example.com`
+
 &nbsp;
 ## How to use
 **For testing purposes, these are the ingredients present on the json**
