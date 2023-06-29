@@ -1,4 +1,4 @@
-# A Recipe website
+# A Recipe website 
 &nbsp;
 ## Features
 - User will be able to search for recipes based on Ingredients that will help them save time from scowering the internet and checking recipes one by one.
