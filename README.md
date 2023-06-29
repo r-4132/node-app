@@ -20,6 +20,7 @@
 This is required to be able to use this app.
 - node
 - react
+- git
 
 **Installation**
 - `git init` to initialize folder
